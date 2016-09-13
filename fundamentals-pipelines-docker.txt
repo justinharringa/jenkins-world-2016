@@ -1,0 +1,7 @@
+https://github.com/kishorebhatia/pipeline-as-code-demo
+
+can use failFast with parallel jobs
+
+Questions:
+* Can node wrap everything or be under stages?
+
