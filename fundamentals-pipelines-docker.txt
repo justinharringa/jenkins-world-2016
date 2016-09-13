@@ -4,4 +4,5 @@ can use failFast with parallel jobs
 
 Questions:
 * Can node wrap everything or be under stages?
+  * It can be done either way... Depends on your project... you may have multiple stages under a single node
 
