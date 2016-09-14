@@ -15,23 +15,52 @@ Questions:
 
 # Keynote
 
-### Fabric8
+## Fabric8
 RedHat led initiative for Jenkins Pipelines, Kubernetes, Docker
 
-### Project Voltron
+## Project Voltron
 New plugin site to make it easier to find plugins
 * Has categories
 * Elasticsearch instead of using page find
 * Better layout
 
-### Blue Ocean
-* they said part of the Blue Ocean initiative is going to be to help productivity for people who like to click around on the interface all the way to people who like to use vim/emacs 
+## Blue Ocean
+* they said part of the Blue Ocean initiative is going to be to help 
+productivity for people who like to click around on the interface all 
+the way to people who like to use vim/emacs 
 * Eventually want to make storage pluggable
 * UX for pipelines first and then continue to push productivity changes
 
-### CloudBees
-#### 4 Quandrants of Maturity
+## CloudBees
+### 4 Quandrants of Maturity
 Y-Axis: Team / Workgroup / Enterprise
 X-Axis: Idea / Code / Build / Test / Stage / Deploy
 
+### Private SaaS Edition
+* Works with AWS or OpenStack currently
+* Config via files / command-line tooling bees-pse
+  * Cluster config / workers
+  * UX looks like Blue Ocean... has visualization
+  * Helps with density / efficiency... Have 100+ but only using 43 VMs
+    * 151 masters / 700 executors
+  * They have a 2000 master / 8000 executors cluster set up
+  * ElasticSearch integrated 
+  * Using containers (assuming Docker given the Docker-heavy topics here)
+* Thousands of plugins.. discussion about how do you ensure stability / migrations
+  * unequal plugin maturity
+  * no extensive compatibility check
+* CloudBees Jenkins Enterprise
+  * selection of enterprise and mature plugins
+  * LOL... Quote on slide "Two words: Excitingly BORING!"
+* DevOps Express
+  * Companies that sometimes overlap/compete in main architecture
+    * DevOps Essential: Atlassian, GitHub, SauceLabs, Chef, SonarSource, BlazeMeter, 
+JFrog, CloudBees, Puppet, Sonatype (no particular order)
+    * Joint Go to Market / Cooperation
+    * Best Practices / Ref Architecture
+    * Integrated Support
+    * Connectivity Assurance
 
+# Secure Container Development Pipelines with Jenkins
+* DataDog survey showed that, from those surveyed, seemed that Enterprises 
+led pack in Docker adoption
