@@ -68,3 +68,6 @@ led pack in Docker adoption
 security concerns
 * FlawCheck is an on-prem or hosted solution... is a registry?
 
+# Continuously Deploying Containers with Jenkins Pipeline to Docker Swarm Cluster
+* Docker compose is supposed go away???
+* http://vfarcic.github.io/jenkins-swarm/index.html#/cover
