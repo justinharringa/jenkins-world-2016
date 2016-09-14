@@ -23,3 +23,8 @@ New plugin site to make it easier to find plugins
 * Has categories
 * Elasticsearch instead of using page find
 * Better layout
+
+### Blue Ocean
+* they said part of the Blue Ocean initiative is going to be to help productivity for people who like to click around on the interface all the way to people who like to use vim/emacs 
+* Eventually want to make storage pluggable
+* UX for pipelines first and then continue to push productivity changes
