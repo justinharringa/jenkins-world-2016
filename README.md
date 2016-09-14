@@ -15,4 +15,11 @@ Questions:
 
 # Keynote
 
-Fabric8 - RedHat led initiative for Jenkins Pipelines, Kubernetes, Docker
+### Fabric8
+RedHat led initiative for Jenkins Pipelines, Kubernetes, Docker
+
+### Project Voltron
+New plugin site to make it easier to find plugins
+* Has categories
+* Elasticsearch instead of using page find
+* Better layout
