@@ -71,3 +71,6 @@ security concerns
 # Continuously Deploying Containers with Jenkins Pipeline to Docker Swarm Cluster
 * Docker compose is supposed go away???
 * http://vfarcic.github.io/jenkins-swarm/index.html#/cover
+
+# Continuous Delivery of Infrastructure w/Jenkins
+* Docker container: docker run -ti rtyler/cd-preso
