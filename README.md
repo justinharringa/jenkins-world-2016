@@ -64,3 +64,7 @@ JFrog, CloudBees, Puppet, Sonatype (no particular order)
 # Secure Container Development Pipelines with Jenkins
 * DataDog survey showed that, from those surveyed, seemed that Enterprises 
 led pack in Docker adoption
+* Mostly talked about SDLC and how they can help audit Docker containers for 
+security concerns
+* FlawCheck is an on-prem or hosted solution... is a registry?
+
