@@ -202,3 +202,37 @@ https://maven.fabric8.io
 ## Lessons Learned
 * Docker instead of Jenkins Tools Install
   * mount secrets into containers using kubernetes Secrets
+
+# So, you want to build the world's biggest Jenkins Cluster?
+* 4GB of heap reasonably decent based on their data
+* 200 executors should be ok (though Jenkins will handle 2k+)
+
+## Context switching: bad
+* Devs have to do this twice for broken build (notification and return to task)
+* Time in Queue important... 
+  * Managing the Design Factory book talks about this
+* Save developer cost by keeping builds fast (low time in queue/turnaround)
+
+## How big should my Jenkins be?
+Based on Little's Law we should probably target 30-50% utilization... 
+can derive # executors
+
+* At least 1 master per 200 devs
+
+## Scaling approaches
+* Jenkins jobs are basically serverless microservices
+
+## How do we manage 
+* Great example: Netflix's Simian Army
+* So how do we do that? Chaos Butler plugin!!!
+
+## Measuring memory usage in Java
+https://github.com/jbellis/jamm
+* JAMM walks object graph to measure memory
+* Stephen wrote a plugin to do this per job and will be releasing it
+
+## Load testing Jenkins
+Used Mock load plugin for testing
+
+
+
