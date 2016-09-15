@@ -143,3 +143,6 @@ Interesting way to manage roles
 
 # Pipelines for Building and Deploying Android Apps
 Interesting Pipeline scripts he presented
+
+# Continuous Delivery Pipeline - Patterns and Anti-Patterns
+* Discuss Domain Driven Design (DDD) for CD
