@@ -152,3 +152,53 @@ Interesting Pipeline scripts he presented
 # How to Do Continuous Delivery with Jenkins Pipeline, Docker, and Kubernetes
 * talking about lots of teams probably wanting different 
 master, going at different speeds
+* fabric8 allows teams to use what they want and deploy stack easily
+
+## fabric8 features
+Stands on Jenkins, Docker, Kubernetes
+* Create: microservice wizards
+* Build: package immutable containers
+* Release: rolling upgrades across environments (he pleaded to use Kubernetes)
+* Runtime: service discovery, elastic scaling, failover, load balancing
+* Manage: centralize logs, metrics, alerts, tracing, circuit breakers
+* Feedback: dashboards & metrics to get feedback!
+* Platform: on premise, public or hybrid cloud
+
+## Deep dive into fabric8
+* Prometheus is grabbing metrics from containers in cluster 
+* Basically aggregators of tooling and makes it easy for a team to roll
+necessary services out
+  * e.g. Gogs, Kubernetes, Nexus, Jenkins, etc...
+* They have library of Pipeline templates for technologies
+  * various languages
+  * can customize environment names 
+    * Kubernetes environments using namespaces
+  * shows code and has plugins for visualizing things like Camel
+* generates mvn sites, javadoc
+* generates dashboards
+
+## Demo
+Grab from https://github.com/fabric8io/gofabric8/releases
+  * gofabric8 start
+
+## Get started
+They listed a bunch... site references them all
+* Amazon, Azure, DigitalOcean
+  * https://stackpoint.io
+
+## Maven plugin
+https://maven.fabric8.io
+* mvn fabric8:cluster-start
+* mvn fabric8:run
+
+## Architecture
+* Jenkins for Pipelines
+* Tools are all packaged in Docker
+* Kubernetes for orchestrating containers
+  * keep containers running across number of machines
+  * deal with software/hardware/network failures
+...
+
+## Lessons Learned
+* Docker instead of Jenkins Tools Install
+  * mount secrets into containers using kubernetes Secrets
