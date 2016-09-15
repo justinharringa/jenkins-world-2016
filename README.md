@@ -134,3 +134,12 @@ things?
 1. Project Commits
 1. People Reviews
 1. System Metrics
+
+# External Workspace Manager Plugin for Jenkins Pipeline
+Interesting... Check this out...
+
+# Ownership Plugin
+Interesting way to manage roles
+
+# Pipelines for Building and Deploying Android Apps
+Interesting Pipeline scripts he presented
