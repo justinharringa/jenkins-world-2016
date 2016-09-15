@@ -82,3 +82,33 @@ security concerns
 * PHPUnit / JUnit tests
 * Jenkins at the center
 
+# No, You Shouldn't Do That! Lessons from Using Pipeline
+* @Library for loading a lib
+* Migrating to Pipelines: Make what you have work and then improve
+* Rule #1: Don't put build logic in the pipeline
+  * They wrote plugin to handle Windows: 
+    https://github.com/jenkinsci/pipeline-utility-steps-plugin
+* Test parallelization
+  * https://github.com/jenkinsci/plugin-compat-tester (test compat of plugins w/ Jenkins version)
+  * GroovyCPS won't run all DefaultGroovyMethods (e.g. each, collect, findAll)
+  * Default whitelist in sandbox is *far* from complete.
+    * Map.size() isn't in it
+  * Sandbox also has other issues 
+    * Anonymous properties in XmlSlurper no supported
+  * @NonCPS turns off GroovyCPS engine
+    * code will still be processed by sandbox
+  * if you call build steps from @NonCPS function, the @NonCPS annotation is voided
+  * Solution:
+    * Don't try to be fancy (KISS)
+    * Multiple jobs are current workaround for Matrix
+* No good saying build failed at end of email
+  * Flow isn't just doing one thing
+  * use try catch/finally for why and when
+* Track library version
+  * Use changelog: true with your checkouts
+  * echo the library version when loaded
+* Report flaky tests so you can fix/remove them
+* Use smaller functions in your library to make it quicker to test
+* *Don't do inputs inside a node (you lock an executor)*
+* Similar with timeouts outside of nodes when script is coming back from restart
+* stage "concurrency" -> great in theory
