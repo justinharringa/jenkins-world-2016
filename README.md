@@ -121,6 +121,7 @@ security concerns
 * Problem #4: Cycle time
   * Releasing small changes and every change often is good
   * But how do I get the whole released quickly?
+
 ## BigData to the Rescue
 RabbitMQ, Flume, HDFS, Spark, Kibana listed... LogStash plugin for Jenkins 
 an option but they preferred Flume because mature and could do more advanced
@@ -130,6 +131,7 @@ things?
 * Channel to central store
 * Never delete
 * Process, inspect, learn 
+
 ## Analytics Dimensions
 1. Project Commits
 1. People Reviews
@@ -146,3 +148,7 @@ Interesting Pipeline scripts he presented
 
 # Continuous Delivery Pipeline - Patterns and Anti-Patterns
 * Discuss Domain Driven Design (DDD) for CD
+
+# How to Do Continuous Delivery with Jenkins Pipeline, Docker, and Kubernetes
+* talking about lots of teams probably wanting different 
+master, going at different speeds
