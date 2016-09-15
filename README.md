@@ -74,3 +74,11 @@ security concerns
 
 # Continuous Delivery of Infrastructure w/Jenkins
 * Docker container: docker run -ti rtyler/cd-preso
+
+# JenkinsOps: An Initiative to Streamline & Automate Jenkins
+* 10+ year codebases
+* Multiple Scrum teams
+* Major investments in testing going forward
+* PHPUnit / JUnit tests
+* Jenkins at the center
+
