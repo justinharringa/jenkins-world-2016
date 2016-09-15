@@ -112,3 +112,25 @@ security concerns
 * *Don't do inputs inside a node (you lock an executor)*
 * Similar with timeouts outside of nodes when script is coming back from restart
 * stage "concurrency" -> great in theory
+
+# Speed up Your Continuous Delivery Pipeline with Jenkins
+## Problems with CD/Microservices
+* Problem #1: Tons of logs slows us down
+* Problem #2: Ripple effect - It was working until 5 mins ago... someone changed something
+* Problem #3: Dependencies
+* Problem #4: Cycle time
+  * Releasing small changes and every change often is good
+  * But how do I get the whole released quickly?
+## BigData to the Rescue
+RabbitMQ, Flume, HDFS, Spark, Kibana listed... LogStash plugin for Jenkins 
+an option but they preferred Flume because mature and could do more advanced
+things?
+* Collect review events
+* Collect logs
+* Channel to central store
+* Never delete
+* Process, inspect, learn 
+## Analytics Dimensions
+1. Project Commits
+1. People Reviews
+1. System Metrics
