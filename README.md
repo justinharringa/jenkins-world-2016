@@ -234,5 +234,97 @@ https://github.com/jbellis/jamm
 ## Load testing Jenkins
 Used Mock load plugin for testing
 
+# The Need For Speed: Building Pipelines to be Faster
+* Background
+* Tooling
+* Best Practices
 
+# What does fast really mean?
+* Throughput: solved by scale-out or separation of concerns
+  * Distributed builds: many build agents per master
+  * Multiple masters (one per team)
+* Resource Use:
+  * AWS c4.large: 4 vCPU, 7.5 GB RAM
+    * ~$153/month on-demand ($95 reserved)
+    * Each may support dozens of engineers
+  * Software Engineer: 
+    * ~$3000-17000/mo
+* Latency: the King! amount of time waiting for build/deploy/etc...
+  * Low turn around time: ship faster
+  * Low turn around: less context switching for engineers
+  * Context switching = lost time & mistakes
+  * Staff time > resource time
 
+## Components of Latency for Pipelines
+My note: These seem like nice metrics to track...
+1. Triggering Delay: time from commit until a build is queued
+   * Use web hooks from SCM
+1. On-master overheads: orchestration and tracking
+   * no executors on master
+   * clean up builds
+   * don't write GB to logs
+1. Queueing time: waiting for an executor slot
+   * Additional build agents
+   * Dynamic agents are easy (cloud agents, Docker agents, etc)
+1. Executor time: how long it takes to build, test, deploy
+1. Feedback delay: time until someone that cares sees the key result (pass/fail)
+   * Limit the spam! Only culprits
+   * Make it meaningful
+   * Use better systems: IM not email CHATOPS!!!
+
+## Shell step
+* There's a impact to the build by calling multiple shell steps
+* Running echo was drastically faster than sh "echo blah"
+
+## Block-level stages
+* Jenkins will show time spent everywhere
+* Blue Ocean has per-step timing
+
+## How Long Does Pipeline Take? (Roughly)
+* Echo Step - 0.75 ms
+  * Storage, etc...
+* 'node' step: Obtain a workspace - 20 ms
+* Run a shell step - 250ms
+  * Will survive a restart of Jenkins master, hence overhead
+* Quick build (1 min) - 60,000ms (1 min)
+
+## Best Practices
+### DON'T DO THESE
+* Input step in a node usage (locks up an executor)
+* waitUntil surrounding something that will never 
+return true wrapping a node usage
+  * also bad because each block is going to create 2 
+    nodes (start/end) for tracking so looping on this would 
+    be bad
+### Better Practice: Bounded Loops
+* retry inside try/catch with good info
+
+### Better Practice: Timeouts
+* Subtler version of retry case
+* Are you deploying? Are you doing network calls?
+  * You need a timeout somewhere
+* Lets you safely recover from hangups
+
+### Big Time Saver: Effective Use of Parallel
+NOTE: Make sure you don't chew up too many executor slots
+* Tests that might fail faster up front before fanning out
+
+### Biggest Time Saver: Effective Notifications
+His slide had the Closure and good code
+* Wrap branches of your pipeline in closure that will notify right away
+
+### Optimization: Consolidate!
+* Node blocks: Giving up a workspace lease means someone else might grab it!
+* Shell/batch steps
+  * Remember that ~0.25s overhead for each shell step???
+* Complex processing logic (XML parsing)
+  * CPS has some significant overheads for tracking everything
+  * @NonCPS works well for lowering things that don't need to be tracked
+    and don't need to be serialized... anything that takes more than a second
+
+## Conclusions
+* Focus on latency
+* Tools
+  * Stage View -> Blue Ocean for top level
+  * Pipeline will track and show timings!!
+* Use echo statements!!!
